@@ -2,8 +2,8 @@
 
 set -e
 
-export WEBAPP_BASE=/usr/local/webapp \
-       ARCHIVE_FILE=stnd_pmis.war \
+export WEBAPP_BASE="/usr/local/webapp" \
+       ARCHIVE_FILE="${ARCHIVE_FILE:-stnd_pmis.war}" \
        JAVA_OPTS="$JAVA_OPTS \
 -Ddb.Url=\"$DB_URL\" \
 -Ddb.Username=\"$DB_USERNAME\" \
