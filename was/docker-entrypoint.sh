@@ -12,9 +12,7 @@ export WEBAPP_BASE="/usr/local/webapp" \
 
 if [ -f "/usr/local/src/$ARCHIVE_FILE" ]; then
     rm -rf $WEBAPP_BASE/ROOT
-    if [ ! -f "$WEBAPP_BASE/$ARCHIVE_FILE" ]; then
-        mkdir -p $WEBAPP_BASE && mv -f /usr/local/src/$ARCHIVE_FILE $WEBAPP_BASE
-    fi
+    mkdir -p $WEBAPP_BASE && mv -f /usr/local/src/$ARCHIVE_FILE $WEBAPP_BASE
 fi
 
 export JVM_ROUTE=${JVM_ROUTE:-worker1}
