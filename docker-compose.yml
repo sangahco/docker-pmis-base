@@ -1,0 +1,8 @@
+version: "2"
+
+services:
+  was:
+    build: sample
+    extends: 
+      service: was
+      file: common-services.yml

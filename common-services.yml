@@ -1,0 +1,9 @@
+version: "2"
+
+services:
+  was:
+    environment: 
+    - MACHINE_HOST
+    - DB_URL
+    - DB_PASSWORD
+    - DB_USERNAME

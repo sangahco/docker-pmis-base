@@ -1,0 +1,31 @@
+version: "2"
+
+# This is a load balancer configuration where several was instance share the same appbase folder
+services:
+  was:
+    build: sample
+    image: webapp-sample
+    volumes: 
+    - app:/usr/local/webapp
+    extends: 
+      service: was
+      file: common-services.yml
+
+  was2:
+    image: webapp-sample
+    volumes: 
+    - app:/usr/local/webapp
+    extends: 
+      service: was
+      file: common-services.yml
+
+  was3:
+    image: webapp-sample
+    volumes: 
+    - app:/usr/local/webapp
+    extends: 
+      service: was
+      file: common-services.yml
+
+volumes: 
+  app:

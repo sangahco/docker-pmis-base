@@ -8,13 +8,20 @@ export WEBAPP_BASE="/usr/local/webapp" \
 -Ddb.Url=\"$DB_URL\" \
 -Ddb.Username=\"$DB_USERNAME\" \
 -Ddb.Password=\"$DB_PASSWORD\" \
--Dsystem.upload.handler=$SYSTEM_UPLOAD_HANDLER"
+-Dsystem.upload.handler=$SYSTEM_UPLOAD_HANDLER \
+-Duser.timezone=GMT"
 
-if [ -f "/usr/local/src/$ARCHIVE_FILE" ]; then
+mkdir -p $WEBAPP_BASE
+LOCKFILE=$WEBAPP_BASE/deploy.lock
+eval "exec 200>$LOCKFILE"
+if [ -f "/usr/local/src/$ARCHIVE_FILE" ] && flock -n 200; then
+    echo "Moving WAR file to appbase directory..."
     rm -rf $WEBAPP_BASE/ROOT
-    if [ ! -f "$WEBAPP_BASE/$ARCHIVE_FILE" ] || [ -w "$WEBAPP_BASE/$ARCHIVE_FILE" ]; then
-        mkdir -p $WEBAPP_BASE && mv -f /usr/local/src/$ARCHIVE_FILE $WEBAPP_BASE
-    fi
+    mv -f /usr/local/src/$ARCHIVE_FILE $WEBAPP_BASE
+    flock -u 200
+else
+    echo "WAR file already in appbase directory or locked by another process"
+    sleep 120
 fi
 
 export JVM_ROUTE=${JVM_ROUTE:-worker1}
