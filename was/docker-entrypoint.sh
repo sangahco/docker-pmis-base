@@ -14,15 +14,18 @@ export WEBAPP_BASE="/usr/local/webapp" \
 mkdir -p $WEBAPP_BASE
 LOCKFILE=$WEBAPP_BASE/deploy.lock
 eval "exec 200>$LOCKFILE"
-if [ -f "/usr/local/src/$ARCHIVE_FILE" ] && flock -n 200; then
-    echo "Moving WAR file to appbase directory..."
-    rm -rf $WEBAPP_BASE/ROOT
-    mv -f /usr/local/src/$ARCHIVE_FILE $WEBAPP_BASE
-    flock -u 200
+if flock -n 200; then
+    if [ -f "/usr/local/src/$ARCHIVE_FILE" ]; then
+        echo "Moving WAR file to appbase directory..."
+        rm -rf $WEBAPP_BASE/ROOT
+        mv -f /usr/local/src/$ARCHIVE_FILE $WEBAPP_BASE
+    fi
 else
     echo "WAR file already in appbase directory or locked by another process"
     sleep 120
 fi
+
+flock -u 200
 
 export JVM_ROUTE=${JVM_ROUTE:-worker1}
 #sed -i "s/worker1/$JVM_ROUTE/" /usr/local/tomcat/conf/server.xml

@@ -7,3 +7,5 @@ services:
     - DB_URL
     - DB_PASSWORD
     - DB_USERNAME
+    - ARCHIVE_FILE
+    - JAVA_MAX_SIZE
