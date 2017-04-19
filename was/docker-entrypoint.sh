@@ -4,12 +4,13 @@ set -e
 
 export WEBAPP_BASE="/usr/local/webapp" \
        ARCHIVE_FILE="${ARCHIVE_FILE:-stnd_pmis.war}" \
-       JAVA_OPTS="$JAVA_OPTS \
+       JAVA_OPTS="\
 -Ddb.Url=\"$DB_URL\" \
 -Ddb.Username=\"$DB_USERNAME\" \
 -Ddb.Password=\"$DB_PASSWORD\" \
 -Dsystem.upload.handler=$SYSTEM_UPLOAD_HANDLER \
--Duser.timezone=GMT"
+-Duser.timezone=GMT \
+$JAVA_OPTS"
 
 mkdir -p $WEBAPP_BASE
 LOCKFILE=$WEBAPP_BASE/deploy.lock
