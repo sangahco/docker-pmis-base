@@ -2,7 +2,7 @@
 
 set -e
 
-DOCKER_COMPOSE_VERSION="1.11.2"
+DOCKER_COMPOSE_VERSION="1.14.0"
 CONF_ARG="-f docker-compose.yml"
 
 SCRIPT_BASE_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )

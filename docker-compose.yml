@@ -7,7 +7,7 @@ services:
       service: was
       file: common-services.yml
     volumes: 
-    - /tmp:/usr/local/webapp/ROOT
+    - $PWD/tmp:/usr/local/webapp/ROOT
 
   httpd:
     image: ${REGISTRY_URL}/apache-pmis
