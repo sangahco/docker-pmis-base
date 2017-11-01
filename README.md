@@ -1,3 +1,6 @@
+[![HitCount](http://hits.dwyl.io/sangahco/sangahco/docker-pmis-base.svg)](http://hits.dwyl.io/sangahco/sangahco/docker-pmis-base)
+[![Jenkins](https://img.shields.io/jenkins/s/https/dev.builder.sangah.com/job/pmis-base.svg?style=flat-square)]()
+
 # Base PMIS Image
 
 This is a barebone image that require the archive 
