@@ -1,4 +1,4 @@
-FROM dev.sangah.com:5043/tomcat-base:stretch-jre8
+FROM dev.sangah.com:5043/tomcat-base:jre8
 
 COPY server.xml.template /usr/local/tomcat/conf/
 ONBUILD COPY ./ /usr/local/src/
