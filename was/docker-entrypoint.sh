@@ -12,6 +12,10 @@ export WEBAPP_BASE="/usr/local/webapp" \
 -Duser.timezone=GMT \
 $JAVA_OPTS"
 
+# set system timezone
+echo "${SYSTEM_TIMEZONE:-UTC}">/etc/timezone && \
+dpkg-reconfigure --frontend=noninteractive tzdata
+
 mkdir -p $WEBAPP_BASE
 LOCKFILE=$WEBAPP_BASE/deploy.lock
 eval "exec 200>$LOCKFILE"
