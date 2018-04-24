@@ -13,7 +13,7 @@ export WEBAPP_BASE="/usr/local/webapp" \
 $JAVA_OPTS"
 
 # set system timezone
-echo "${SYSTEM_TIMEZONE:-UTC}">/etc/timezone && \
+echo "${SYSTEM_TIMEZONE:-Asia/Seoul}">/etc/timezone && \
 dpkg-reconfigure --frontend=noninteractive tzdata
 
 mkdir -p $WEBAPP_BASE
