@@ -3,10 +3,10 @@ version: "2"
 services:
   was:
     environment: 
-    - MACHINE_HOST
-    - DB_URL
-    - DB_PASSWORD
-    - DB_USERNAME
+    - "system.domain=${MACHINE_HOST}"
+    - "db.Url=${DB_URL}"
+    - "db.Password=${DB_PASSWORD}"
+    - "db.Username=${DB_USERNAME}"
     - ARCHIVE_FILE
     - JAVA_MAX_SIZE
     - SYSTEM_TIMEZONE
