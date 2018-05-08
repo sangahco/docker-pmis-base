@@ -10,7 +10,7 @@ services:
     - $PWD/tmp:/usr/local/webapp/ROOT
 
   httpd:
-    image: ${REGISTRY_URL}/apache-pmis
+    image: sangah/apache-pmis
     ports:
     - "80:80"
     environment: 
