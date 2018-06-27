@@ -4,13 +4,7 @@ set -e
 
 export WEBAPP_BASE="/usr/local/webapp" \
        ARCHIVE_FILE="${ARCHIVE_FILE:-stnd_pmis.war}" \
-       JAVA_OPTS="\
--Ddb.Url=\"$DB_URL\" \
--Ddb.Username=\"$DB_USERNAME\" \
--Ddb.Password=\"$DB_PASSWORD\" \
--Dsystem.upload.handler=$SYSTEM_UPLOAD_HANDLER \
--Duser.timezone=GMT \
-$JAVA_OPTS"
+       JAVA_OPTS="-Duser.timezone=GMT $JAVA_OPTS"
 
 # set system timezone
 echo "${SYSTEM_TIMEZONE:-Asia/Seoul}">/etc/timezone && \

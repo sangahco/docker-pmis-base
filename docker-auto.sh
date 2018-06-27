@@ -17,6 +17,7 @@ getenv(){
 DOCKER_COMPOSE_VERSION="1.14.0"
 CONF_ARG="-f docker-compose.yml"
 REGISTRY_URL="$(getenv REGISTRY_URL)"
+PROJECT_NAME="$(getenv PROJECT_NAME)"
 
 ########################################
 # Install docker-compose
