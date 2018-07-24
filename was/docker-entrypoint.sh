@@ -2,9 +2,7 @@
 
 set -e
 
-export WEBAPP_BASE="/usr/local/webapp" \
-       ARCHIVE_FILE="${ARCHIVE_FILE:-stnd_pmis.war}" \
-       JAVA_OPTS="-Duser.timezone=GMT $JAVA_OPTS"
+export JAVA_OPTS="-Duser.timezone=GMT $JAVA_OPTS"
 
 # set system timezone
 echo "${SYSTEM_TIMEZONE:-Asia/Seoul}">/etc/timezone && \
@@ -26,7 +24,6 @@ fi
 
 flock -u 200
 
-export JVM_ROUTE=${JVM_ROUTE:-worker1}
 #sed -i "s/worker1/$JVM_ROUTE/" /usr/local/tomcat/conf/server.xml
 envsubst '$JVM_ROUTE $ARCHIVE_FILE' < /usr/local/tomcat/conf/server.xml.template > /usr/local/tomcat/conf/server.xml
 
