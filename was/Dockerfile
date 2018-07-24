@@ -4,7 +4,10 @@ COPY server.xml.template /usr/local/tomcat/conf/
 ONBUILD COPY ./ /usr/local/src/
 
 # force locale to Korean
-ENV LC_ALL=ko_KR.UTF8
+ENV LC_ALL=ko_KR.UTF8 \
+    WEBAPP_BASE=/usr/local/webapp \
+    ARCHIVE_FILE=stnd_pmis.war \
+    JVM_ROUTE=worker1
 
 EXPOSE 8080
 EXPOSE 8081
