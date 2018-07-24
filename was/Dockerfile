@@ -7,7 +7,8 @@ ONBUILD COPY ./ /usr/local/src/
 ENV LC_ALL=ko_KR.UTF8 \
     WEBAPP_BASE=/usr/local/webapp \
     ARCHIVE_FILE=stnd_pmis.war \
-    JVM_ROUTE=worker1
+    JVM_ROUTE=worker1 \
+    MACHINE_HOST=127.0.0.1
 
 EXPOSE 8080
 EXPOSE 8081
