@@ -8,7 +8,8 @@ ENV LC_ALL=ko_KR.UTF8 \
     WEBAPP_BASE=/usr/local/webapp \
     ARCHIVE_FILE=stnd_pmis.war \
     JVM_ROUTE=worker1 \
-    MACHINE_HOST=127.0.0.1
+    MACHINE_HOST=127.0.0.1 \
+    SYSTEM_TIMEZONE=GMT
 
 EXPOSE 8080
 EXPOSE 8081
