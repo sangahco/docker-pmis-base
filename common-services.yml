@@ -10,3 +10,4 @@ services:
     - ARCHIVE_FILE
     - JAVA_MAX_SIZE
     - SYSTEM_TIMEZONE
+    - JAVA_OPTS

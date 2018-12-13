@@ -2,11 +2,11 @@
 
 set -e
 
-export JAVA_OPTS="-Duser.timezone=GMT $JAVA_OPTS"
-
 # set system timezone
 echo "${SYSTEM_TIMEZONE:-Asia/Seoul}">/etc/timezone && \
 dpkg-reconfigure --frontend=noninteractive tzdata
+
+export JAVA_OPTS="-Duser.timezone=$SYSTEM_TIMEZONE $JAVA_OPTS"
 
 mkdir -p $WEBAPP_BASE
 LOCKFILE=$WEBAPP_BASE/deploy.lock
