@@ -3,13 +3,18 @@ FROM sangah/tomcat-base:jre8
 COPY server.xml.template /usr/local/tomcat/conf/
 ONBUILD COPY ./ /usr/local/src/
 
+# we cache new fonts from pmis
+ONBUILD RUN mkdir /usr/local/share/fonts/pmis && \
+    cp -R /usr/local/src/fonts /usr/local/share/fonts/pmis || true && \
+    fc-cache -fv
+
 # force locale to Korean
 ENV LC_ALL=ko_KR.UTF8 \
     WEBAPP_BASE=/usr/local/webapp \
     ARCHIVE_FILE=stnd_pmis.war \
     JVM_ROUTE=worker1 \
     MACHINE_HOST=127.0.0.1 \
-    SYSTEM_TIMEZONE=GMT
+    SYSTEM_TIMEZONE=Asia/Seoul
 
 EXPOSE 8080
 EXPOSE 8081
