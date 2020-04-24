@@ -3,7 +3,8 @@
 set -e
 
 # set system timezone
-echo "${SYSTEM_TIMEZONE:-Asia/Seoul}">/etc/timezone && \
+SYSTEM_TIMEZONE="${SYSTEM_TIMEZONE:-Asia/Seoul}"
+echo "${SYSTEM_TIMEZONE}">/etc/timezone && \
 dpkg-reconfigure --frontend=noninteractive tzdata
 
 export JAVA_OPTS="-Duser.timezone=$SYSTEM_TIMEZONE $JAVA_OPTS"
