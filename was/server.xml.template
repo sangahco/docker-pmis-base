@@ -26,6 +26,7 @@
             disableUploadTimeout="true"
             enableLookups="false"
             maxPostSize="-1"
+			maxParameterCount="-1"
             maxThreads="150"
             port="8080"
             redirectPort="443"/>
