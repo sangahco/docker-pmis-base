@@ -8,7 +8,6 @@ echo "${SYSTEM_TIMEZONE}">/etc/timezone && \
 dpkg-reconfigure --frontend=noninteractive tzdata
 
 export JAVA_OPTS="-Duser.timezone=$SYSTEM_TIMEZONE $JAVA_OPTS"
-export UMASK="0022"
 
 mkdir -p $WEBAPP_BASE
 LOCKFILE=$WEBAPP_BASE/deploy.lock
