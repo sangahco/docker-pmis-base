@@ -37,7 +37,9 @@
             <Realm className="org.apache.catalina.realm.UserDatabaseRealm" resourceName="UserDatabase"/>
             <Host appBase="/usr/local/webapp" autoDeploy="false" deployOnStartup="false" name="localhost"
                 unpackWARs="true" xmlNamespaceAware="false" xmlValidation="false">
-                <Context docBase="$ARCHIVE_FILE" path="" reloadable="false" allowLinking="true"/>
+                <Context docBase="$ARCHIVE_FILE" path="" reloadable="false" allowLinking="true">
+                  <Valve className="org.apache.catalina.valves.RemoteIpValve" remoteIpHeader="x-forwarded-for" proxiesHeader="x-forwarded-by" protocolHeader="x-forwarded-proto" />
+                </Context>
             </Host>
         </Engine>
     </Service>
