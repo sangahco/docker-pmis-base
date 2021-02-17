@@ -8,6 +8,9 @@ ONBUILD RUN mkdir /usr/local/share/fonts/pmis && \
     cp -R /usr/local/src/fonts /usr/local/share/fonts/pmis || true && \
     fc-cache -fv
 
+# copy shared libraries into tomcat lib folder
+ONBUILD RUN cp -R /usr/local/src/lib /usr/local/tomcat/lib || true
+
 # force locale to Korean
 ENV LC_ALL=ko_KR.UTF8 \
     WEBAPP_BASE=/usr/local/webapp \
