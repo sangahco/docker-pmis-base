@@ -28,4 +28,4 @@ RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 #CMD ["catalina.sh", "run"]
 
-HEALTHCHECK --start-period=30s --interval=10s --retries=5 CMD curl -Ss http://127.0.0.1:8080/ || exit 1
+HEALTHCHECK --start-period=120s --interval=10s --retries=5 CMD curl -Ss http://127.0.0.1:8080/ || exit 1
