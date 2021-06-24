@@ -1,4 +1,4 @@
-FROM sangah/tomcat-base:jre8
+FROM sangah/tomcat-base:8.5-jdk8
 
 COPY server.xml.template /usr/local/tomcat/conf/
 ONBUILD COPY ./ /usr/local/src/
