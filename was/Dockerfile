@@ -5,7 +5,7 @@ ONBUILD COPY ./ /usr/local/src/
 
 # we cache new fonts from pmis
 ONBUILD RUN mkdir /usr/local/share/fonts/pmis && \
-    cp -R /usr/local/src/fonts /usr/local/share/fonts/pmis || true && \
+    cp -R /usr/local/src/fonts/* /usr/local/share/fonts/pmis || true && \
     fc-cache -fv
 
 # force locale to Korean
