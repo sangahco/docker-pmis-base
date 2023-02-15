@@ -1,6 +1,8 @@
 FROM sangah/tomcat-base:8.5-jdk8
 
 COPY server.xml.template /usr/local/tomcat/conf/
+COPY web.xml /usr/local/tomcat/conf/
+
 ONBUILD COPY ./ /usr/local/src/
 
 # we cache new fonts from pmis
